@@ -1,6 +1,6 @@
 clear
 clc
-%general aiyagari II.5.1
+
 t1 = clock;
 sigma  = 2;                 
 beta   = 1/1.06;            % 
@@ -124,15 +124,6 @@ while  (metric > toler) & (liter <= maxiter);
    liter = liter+1;
    end
 
-% disp('PARAMETER VALUES');
-% disp('');
-% disp('    sigma      beta      delta       A      alpha      theta'); 
-% disp([ sigma beta delta A alpha theta]);
-% disp(''); 
-% disp('EQUILIBRIUM RESULTS ');
-% disp('');
-% disp('      K         N        wage      rent');
-% disp([ Kold N wage rent ]);
 
 k = Kold;                  
 n = 100;                
@@ -171,14 +162,9 @@ for i = 1:n-1;
 end;
 figure
 hold on
-plot((1:n-1)',invest,(1:n-1)',cons);
 
-legend('c','i');
-%title('MODEL 2: INVESTMENT AND CONSUMPTION');
-hold off
-print histmod2
-disp('Covariance matrix');
-disp([cov(cons,invest)]);
+
+
 
 figure
 income =  [ (rent*grid + wage-theta)  (rent*grid + wage+theta) ]  ; 
@@ -195,8 +181,7 @@ print distmod2
 figure
 hold on
 plot(probk);
-axis([0 300 0 0.03]);
-%title(' WEALTH INVARIANT DISTRIBUTION');
+
 xlabel('a');
 ylabel('% of agents');
 
